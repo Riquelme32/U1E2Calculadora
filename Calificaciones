@@ -1,0 +1,103 @@
+package calificaciones;
+import java.util.Scanner;
+import Main.Metodos;
+//AME RIQUELME
+
+public class Calificaciones
+{
+
+    
+    public static void main(String[] args) 
+    {
+        Scanner leer= new Scanner (System.in);
+       
+    String alumnos[] = { //ARREGLO PARA LOS 15 ALUMNOS
+    
+          "ACEVEDO CAMPOS ARIAGNA",
+          "AMBROCIO PEREZ MICHEL HAZIEL",
+          "AMBROCIO HERNANDEZ NIANEY CELERINA",
+          "CAMPOS CASASANERO JUAN PABLO",
+          "DIAZ DE JESUS MARIANA DAZZLING",
+          "DIAZ ROSAS ALEXIS EFREN",
+          "DOMINGUEZ CAZALES JENNIFER IRLANDA",
+          "ALEGIO RAMOS MONSERRAT",
+          "FLORES MALDONADO LILIANA",
+          "GOMEZ ARAGON EDGAR OMAR",
+          "GUTIERREZ VALLE SAMARA",
+          "JUAREZ RAMOS ALEXIS MANUEL",
+          "LEYVA SILVA ROGELIO JESUS",
+          "MARTINEZ RAYO IRIS MADAI",
+          "MELENDEZ MENDOZA VICENTE ANGEL"
+    };
+    
+    int NControl []= //ARREGLO PARA LOS NUMEROS DE CONTROL
+        {
+          18880056,
+          19680091,
+          19680092,
+          19680113,
+          19680133,
+          17680136,
+          18880108,
+          19680957,
+          19680144,
+          19680156,
+          19680162,
+          19680958,
+          19680177,
+          18680163,
+          18680165
+        };
+           
+    double calificaciones[] = new double [alumnos.length];
+          //LECTURA DE LOS DATOS
+        for (int i = 0; i < calificaciones.length; i++)
+         {
+            do{
+               System.out.print(" "+ (i+1)+ "  " + NControl[i] + "  " + alumnos[i]+ " \nCalificacion del alumno= ");
+                calificaciones [i] = leer.nextDouble();
+                System.out.println("");
+              }while(calificaciones [i] < 0 || calificaciones [i] > 100);
+         }      
+               
+          Metodos metodo = new Metodos(); //CREAR OBJETO METODO PARA MANDAR A LLAMAR A LA CLASE METODOS
+          int opc1,opc2;
+            do{ //OPCIONES DEL MENU
+               opc2 =1; //PARA LEER LA ULTIMA OPCION
+                 System.out.println("QUE DESEA HACER?");
+                 System.out.println("«1. PROMEDIO GENERAL»");
+                 System.out.println("«2. PROMEDIO DE LOS 5 PRIMEROS ALUMNOS»");
+                 System.out.println("«3. PROMEDIO DE LOS 5 ULTIMOS ALUMNOS»");
+                 System.out.println("«4. Salir»");
+          
+              opc1 = leer.nextInt();
+           
+           switch (opc1) //CASOS QUE VAN A MANDAR A LLAMAR A LOS METODOS
+           {
+               case 1:
+                   System.out.println("Calificaciones grupal: " + metodo.verPromedio(calificaciones));
+                   break;
+                   
+               case 2:
+                   metodo.Primeros(alumnos, NControl, calificaciones);
+                   break;
+                   
+               case 3:
+                   metodo.Ultimos(alumnos, NControl, calificaciones);
+                   break;
+                   
+               case 4:
+                   System.out.println("Salir");
+                   break;
+                  
+           }if (opc1!=4) 
+           {
+              System.out.println("Desea continuar (0) SI - (1) NO");
+              opc2 = leer.nextInt();  
+            }
+            
+        }  while (opc2 !=1); 
+    }
+               
+           }
+    
