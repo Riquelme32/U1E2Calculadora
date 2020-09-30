@@ -1,0 +1,45 @@
+package Main;
+
+/**
+ *
+ * @author AME RIQUELME
+ */
+public class Metodos 
+{
+    
+    public double verPromedio (double[] Calif )
+    {
+        double aux=0;
+        for (int i = 0; i < Calif.length; i++)
+        {
+            aux = aux + Calif[i];
+        }
+        aux = aux / Calif.length;
+       return aux;
+       
+    }
+    
+    public void Primeros (String[] alumnos, int[] NControl, double[] Calif)
+    {
+        double aux=0;
+        for (int i = 0; i < 5; i++)
+        {
+            aux = aux + Calif[i];
+        }
+        aux = aux / 5;
+        System.out.println("PROMEDIO DE LOS PRIMEROS 5 ALUMNOS: "+aux);
+    }
+    
+    public void Ultimos (String[] alumnos, int[] NControl, double[] Calif)
+    {
+        double aux=0;
+        for (int i = Calif.length-1; i > 9 ; i--)
+        {
+            aux = aux + Calif[i];
+        }
+        aux = aux / 5;  
+        System.out.println("PROMEDIO DE LOS ULTIMOS 5 ALUMNOS: "+aux);
+    }
+
+    
+}
